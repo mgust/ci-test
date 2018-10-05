@@ -11,3 +11,9 @@ jobs:
       - run:
           name: Print the Current Time
           command: date
+      - setup_remote_docker
+      - run:
+          name: Build Docker image
+          command: |
+             docker build -t mgust/testimage:${CIRCLE_BUILD_NUM} .
+
